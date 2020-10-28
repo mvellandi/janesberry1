@@ -6,6 +6,7 @@ defmodule Janesberry.Accounts.Api do
   resources do
     resource(Person)
     resource(Media.Story)
+    resource(Media.StoryAuthor)
     resource(Media.Edition)
   end
 end

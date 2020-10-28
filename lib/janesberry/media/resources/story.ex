@@ -24,8 +24,13 @@ defmodule Janesberry.Media.Story do
   end
 
   relationships do
-    has_many :authors, Accounts.Person, destination_field: :stories
     has_many :editions, Media.Edition, destination_field: :story_id
+    many_to_many :authors, Accounts.Person,
+      through: Media.StoryAuthor,
+      # source_field: :authors,
+      source_field_on_join_table: :author,
+      # destination_field: :id,
+      destination_field_on_join_table: :story
     # has_many :culture_periods, Categories.CulturePeriod ...
     # has_many :genres, Categories.Genre ...
     # has_many :primary_topics, Categories.Topic ...

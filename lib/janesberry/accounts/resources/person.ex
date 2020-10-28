@@ -34,7 +34,13 @@ defmodule Janesberry.Accounts.Person do
   end
 
   relationships do
-    has_many :stories, Media.Story, destination_field: :authors
+      many_to_many :stories, Media.Story,
+        through: Media.StoryAuthor,
+        # source_field: :text,
+        source_field_on_join_table: :story,
+        # destination_field: :id,
+        destination_field_on_join_table: :author
+    # has_many :stories, Media.Story, destination_field: :authors
     # has_many :genres, Media.Story, destination_field: :author_id
   end
 

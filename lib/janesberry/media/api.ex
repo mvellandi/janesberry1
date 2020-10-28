@@ -5,6 +5,7 @@ defmodule Janesberry.Media.Api do
 
   resources do
     resource(Story)
+    resource(Story.Author)
     resource(Edition)
   end
 end
