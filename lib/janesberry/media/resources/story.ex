@@ -1,5 +1,5 @@
 defmodule Janesberry.Media.Story do
-  alias Janesberry.{Accounts, Media}
+  alias Janesberry.Media
 
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer
@@ -11,26 +11,28 @@ defmodule Janesberry.Media.Story do
 
   attributes do
     attribute :id, :uuid do
-      primary_key?(true)
-      allow_nil?(false)
-      writable?(false)
-      default(&Ecto.UUID.generate/0)
+      primary_key? true
+      allow_nil? false
+      writable? false
+      default &Ash.uuid/0
     end
 
-    attribute(:title, :string, allow_nil?: false)
-    attribute(:description_short, :string, allow_nil?: false)
+    attribute :title, :string, allow_nil?: false
+    attribute :description_short, :string, allow_nil?: false
     # attribute(:description_long, :string, allow_nil?: false)
     # attribute(:is_adaptation, :boolean, allow_nil?: false)
   end
 
   relationships do
     has_many :editions, Media.Edition, destination_field: :story_id
-    many_to_many :authors, Accounts.Person,
+
+    many_to_many :authors, Media.Author,
       through: Media.StoryAuthor,
       # source_field: :authors,
-      source_field_on_join_table: :author,
+      source_field_on_join_table: :author_id,
       # destination_field: :id,
-      destination_field_on_join_table: :story
+      destination_field_on_join_table: :story_id
+
     # has_many :culture_periods, Categories.CulturePeriod ...
     # has_many :genres, Categories.Genre ...
     # has_many :primary_topics, Categories.Topic ...

@@ -1,11 +1,12 @@
 defmodule Janesberry.Media.Api do
-  alias Janesberry.Media.{Story, Edition}
+  alias Janesberry.Media.{Story, StoryAuthor, Author, Edition}
 
   use Ash.Api
 
   resources do
-    resource(Story)
-    resource(Story.Author)
-    resource(Edition)
+    resource Author
+    resource Story
+    resource StoryAuthor
+    resource Edition
   end
 end
