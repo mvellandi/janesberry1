@@ -1,5 +1,5 @@
 defmodule Janesberry.Media.StoryAuthor do
-  alias Janesberry.{Accounts, Media}
+  alias Janesberry.Media
 
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer
@@ -20,6 +20,6 @@ defmodule Janesberry.Media.StoryAuthor do
 
   relationships do
     belongs_to :story, Media.Story, primary_key?: true
-    belongs_to :author, Accounts.Person, primary_key?: true
+    belongs_to :author, Media.Author, primary_key?: true
   end
 end

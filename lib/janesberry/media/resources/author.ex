@@ -1,4 +1,6 @@
-defmodule Janesberry.Accounts.Person do
+defmodule Janesberry.Media.Author do
+  alias Janesberry.Media
+
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer
 
@@ -11,7 +13,6 @@ defmodule Janesberry.Accounts.Person do
     attribute :id, :uuid do
       primary_key? true
       allow_nil? false
-      writable? false
       default &Ash.uuid/0
     end
 
@@ -32,10 +33,16 @@ defmodule Janesberry.Accounts.Person do
     # attribute(:death_year, :integer, allow_nil?: false, default(3000))
   end
 
+  relationships do
+    many_to_many :stories, Media.Story,
+      through: Media.StoryAuthor,
+      # source_field: :text,
+      source_field_on_join_table: :story_id,
+      # destination_field: :id,
+      destination_field_on_join_table: :author_id
+  end
+
   actions do
-    create :default
     read :default
-    update :default
-    destroy :default
   end
 end

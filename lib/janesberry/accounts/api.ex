@@ -1,12 +1,9 @@
 defmodule Janesberry.Accounts.Api do
-  alias Janesberry.Accounts.Person
-  alias Janesberry.Media
   use Ash.Api
 
+  alias Janesberry.Accounts.Person
+
   resources do
-    resource(Person)
-    resource(Media.Story)
-    resource(Media.StoryAuthor)
-    resource(Media.Edition)
+    resource Person
   end
 end
