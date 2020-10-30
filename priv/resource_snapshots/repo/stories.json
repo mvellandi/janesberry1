@@ -1,0 +1,38 @@
+{
+  "attributes": [
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "name": "description_short",
+      "primary_key?": false,
+      "references": null,
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "name": "id",
+      "primary_key?": true,
+      "references": null,
+      "type": "binary_id"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "name": "title",
+      "primary_key?": false,
+      "references": null,
+      "type": "text"
+    }
+  ],
+  "base_filter": null,
+  "hash": "C491D566522EDBB66D4CF9706963E104EFA30FBFAC86717B2A6157EA8CE4A206",
+  "identities": [],
+  "multitenancy": {
+    "attribute": null,
+    "global": null,
+    "strategy": null
+  },
+  "repo": "Elixir.Janesberry.Repo",
+  "table": "stories"
+}

@@ -24,7 +24,7 @@ defmodule Janesberry.Media.Author do
     attribute :email, :string,
       allow_nil?: true,
       constraints: [
-        match: ~r/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/
+        match: ~r/^[\w.!#$%&’*+\-\/=?\^`{|}~]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i
       ]
 
     # attribute(:description_short, :string, allow_nil?: false)
@@ -36,9 +36,7 @@ defmodule Janesberry.Media.Author do
   relationships do
     many_to_many :stories, Media.Story,
       through: Media.StoryAuthor,
-      # source_field: :text,
       source_field_on_join_table: :story_id,
-      # destination_field: :id,
       destination_field_on_join_table: :author_id
   end
 

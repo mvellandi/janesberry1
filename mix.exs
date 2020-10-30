@@ -50,8 +50,8 @@ defmodule Janesberry.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:ash, "~> 1.22.0"},
-      {:ash_postgres, "~> 0.24.0"}
+      {:ash, "~> 1.22"},
+      {:ash_postgres, "~> 0.25.1"}
     ]
   end
 

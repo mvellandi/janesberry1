@@ -1,7 +1,7 @@
 defmodule Janesberry.Accounts.Api do
-  use Ash.Api
-
   alias Janesberry.Accounts.Person
+
+  use Ash.Api
 
   resources do
     resource Person

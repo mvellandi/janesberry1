@@ -23,7 +23,7 @@ defmodule Janesberry.Accounts.Person do
     attribute :email, :string,
       allow_nil?: true,
       constraints: [
-        match: ~r/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/
+        match: ~r/^[\w.!#$%&’*+\-\/=?\^`{|}~]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i
       ]
 
     # attribute(:description_short, :string, allow_nil?: false)

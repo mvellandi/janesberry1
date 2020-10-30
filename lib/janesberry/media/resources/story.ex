@@ -19,6 +19,11 @@ defmodule Janesberry.Media.Story do
 
     attribute :title, :string, allow_nil?: false
     attribute :description_short, :string, allow_nil?: false
+
+    # attribute :language, type...
+
+    # attribute :translation_of, :uuid, allow_nil?: true
+    # attribute :adaptation_of, :uuid, allow_nil?: true
     # attribute(:description_long, :string, allow_nil?: false)
     # attribute(:is_adaptation, :boolean, allow_nil?: false)
   end
@@ -26,11 +31,15 @@ defmodule Janesberry.Media.Story do
   relationships do
     has_many :editions, Media.Edition, destination_field: :story_id
 
+    has_one :translation_of, Media.Story, destination_field: :id
+    has_many :translations, Media.Story, destination_field: :id
+
+    has_one :adaptation_of, Media.Story, destination_field: :id
+    has_many :adaptations, Media.Story, destination_field: :id
+
     many_to_many :authors, Media.Author,
       through: Media.StoryAuthor,
-      # source_field: :authors,
       source_field_on_join_table: :author_id,
-      # destination_field: :id,
       destination_field_on_join_table: :story_id
 
     # has_many :culture_periods, Categories.CulturePeriod ...
