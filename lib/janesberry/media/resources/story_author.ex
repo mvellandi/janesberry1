@@ -13,4 +13,12 @@ defmodule Janesberry.Media.StoryAuthor do
     belongs_to :story, Story, primary_key?: true
     belongs_to :author, Author, primary_key?: true
   end
+
+  actions do
+    create :default
+    read :default
+    update :default
+    destroy :default
+  end
+
 end

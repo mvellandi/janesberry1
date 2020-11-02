@@ -39,8 +39,8 @@ defmodule Janesberry.Media.Story do
 
     many_to_many :authors, Media.Author,
       through: Media.StoryAuthor,
-      source_field_on_join_table: :author_id,
-      destination_field_on_join_table: :story_id
+      source_field_on_join_table: :story_id,
+      destination_field_on_join_table: :author_id
 
     # has_many :culture_periods, Categories.CulturePeriod ...
     # has_many :genres, Categories.Genre ...

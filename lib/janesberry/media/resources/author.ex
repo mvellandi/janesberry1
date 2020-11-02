@@ -36,8 +36,8 @@ defmodule Janesberry.Media.Author do
   relationships do
     many_to_many :stories, Media.Story,
       through: Media.StoryAuthor,
-      source_field_on_join_table: :story_id,
-      destination_field_on_join_table: :author_id
+      source_field_on_join_table: :author_id,
+      destination_field_on_join_table: :story_id
   end
 
   actions do
